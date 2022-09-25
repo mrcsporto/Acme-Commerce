@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  referencia_pedido: MyString
+  email_pedido: MyString
+  data_pagamento: 2022-09-25
+  nome_cliente: MyString
+  estado_pedido: MyString
+  valor_total: 1.5
+  valor_produto: 1.5
+  imagem_produto: MyString
+  nome_produto: MyString
+  categoria: MyString
+  valor_base: 1.5
+  cidade: MyString
+  estado: MyString
+  endereco: MyString
+
+two:
+  referencia_pedido: MyString
+  email_pedido: MyString
+  data_pagamento: 2022-09-25
+  nome_cliente: MyString
+  estado_pedido: MyString
+  valor_total: 1.5
+  valor_produto: 1.5
+  imagem_produto: MyString
+  nome_produto: MyString
+  categoria: MyString
+  valor_base: 1.5
+  cidade: MyString
+  estado: MyString
+  endereco: MyString

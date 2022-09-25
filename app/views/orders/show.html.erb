@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Referencia pedido:</strong>
+  <%= @order.referencia_pedido %>
+</p>
+
+<p>
+  <strong>Email pedido:</strong>
+  <%= @order.email_pedido %>
+</p>
+
+<p>
+  <strong>Data pagamento:</strong>
+  <%= @order.data_pagamento %>
+</p>
+
+<p>
+  <strong>Nome cliente:</strong>
+  <%= @order.nome_cliente %>
+</p>
+
+<p>
+  <strong>Estado pedido:</strong>
+  <%= @order.estado_pedido %>
+</p>
+
+<p>
+  <strong>Valor total:</strong>
+  <%= @order.valor_total %>
+</p>
+
+<p>
+  <strong>Valor produto:</strong>
+  <%= @order.valor_produto %>
+</p>
+
+<p>
+  <strong>Imagem produto:</strong>
+  <%= @order.imagem_produto %>
+</p>
+
+<p>
+  <strong>Nome produto:</strong>
+  <%= @order.nome_produto %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @order.categoria %>
+</p>
+
+<p>
+  <strong>Valor base:</strong>
+  <%= @order.valor_base %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @order.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @order.estado %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @order.endereco %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
