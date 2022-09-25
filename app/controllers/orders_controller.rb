@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
+  def import
+    Order.import(params[:file])
+    redirect_to root_url, notice: "Orders imported."
+  end
+
   # GET /orders or /orders.json
   def index
     @orders = Order.all
@@ -56,6 +61,7 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
