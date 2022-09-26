@@ -2,6 +2,11 @@
 
 <h1>Orders</h1>
 
+ <div class="field">
+    <%= :categoria %>
+    <%= select("order", "categoria",@orders.filter_category, {:include_blank => "Select"} )%>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -56,3 +61,6 @@
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+
+
+ 

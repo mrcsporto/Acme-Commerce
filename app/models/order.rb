@@ -15,5 +15,10 @@ class Order < ApplicationRecord
       Order.create! row.to_hash
     end
   end
+
+  def self.filter_category
+   categories =  Order.distinct.pluck(:categoria).sort()
+  end
+
 end
 
