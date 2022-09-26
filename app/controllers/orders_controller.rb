@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def import
     Order.import(params[:file])
-    redirect_to root_url, notice: "Orders imported."
+    redirect_to orders_url, notice: "Orders imported."
   end
 
   # GET /orders or /orders.json
