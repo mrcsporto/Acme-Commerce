@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
   def import
-    Order.import(params[:file])
+    %x[rake import_orders]
     redirect_to orders_url, notice: "Orders imported."
   end
 
