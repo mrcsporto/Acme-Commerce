@@ -17,5 +17,6 @@ $ rails db:migrate
 - Import CSV file
 - Filter By Category
 - List Of Most Selling Products
+- Git Tag Versioning
 ```
 
