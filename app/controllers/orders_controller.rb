@@ -2,13 +2,16 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
   def import
-    %x[rake import_orders]
+     # %x[rake import_orders] Removi pois utilizei a Rake task para rodar em background pois buscava de um diretório local, 
+     #caso mude de pc pode mudar o path da pasta também. Preferi deixar assim até descobrir outra forma.
+     
+    Order.import(params[:file])
     redirect_to orders_url, notice: "Orders imported."
   end
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.search(params[:categoria])
   end
 
   # GET /orders/1 or /orders/1.json
