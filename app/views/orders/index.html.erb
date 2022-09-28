@@ -1,11 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
-
- <div class="field">
-    <%= :categoria %>
-    <%= select("order", "categoria",@orders.filter_category, {:include_blank => "Select"} )%>
+<div class="nav">
+  <h1>Orders </h1>
+  <h4><%= link_to 'New Order', new_order_path %></h4>
+  <h4><%= link_to 'Best Sellers', bestsellers_path %></h4>
 </div>
+<hr>
+<div class="container">
+    <div class="content">
+      <h3>Import Orders</h3>
+        <%= form_tag import_orders_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+    </div>
+    <div class="content">
+      <h3>Filter</h3>
+      <%= form_tag orders_path, multipart: true, :method => 'get' do %>
+        <%= select_tag "categoria", options_for_select(@orders.filter_category), {:include_blank => "Select"} %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+  </div>
+</div><br><hr><br>
 
 <table>
   <thead>
@@ -52,15 +69,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
-<h2>Import Orders</h2>
-<%= form_tag import_orders_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-
- 
