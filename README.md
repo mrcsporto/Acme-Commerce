@@ -1,24 +1,22 @@
-# README
+# ACME COMMERCE APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup Versions
+* Ruby version: 3.0.4
+* Rails version: 6.1.7
 
-Things you may want to cover:
+##### Install gems
+```sh
+$ bundle install
+```
+##### Database migration
+```sh
+$ rails db:migrate 
+```
+### Features
+```sh
+- Import CSV file
+- Filter By Category
+- List Of Most Selling Products
+- Git Tag Versioning
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
