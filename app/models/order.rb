@@ -9,8 +9,30 @@ class Order < ApplicationRecord
   validates :nome_cliente, :estado_pedido, :cidade, :estado, :categoria,
             format: { with: /\A[\p{Latin}\p{Punct}\p{Space}0-9]*\z/, message: "só é permitido letras" }
 
-  def self.filter_category
-   categories =  Order.distinct.pluck(:categoria).sort()
+  def self.import(file)
+    CSV.foreach(file.path, headers: true, :header_converters => lambda { 
+      |h| h.try(:downcase).try(:gsub,' ', '_') }) do |row|
+       Order.create! row.to_hash
+    end
   end
-end
 
+  def self.search(categoria)
+    if categoria
+      Order.where(categoria: "#{categoria}")
+    else
+      Order.all
+    end
+  end
+
+  def self.filter_category
+    Order.distinct.pluck(:categoria).sort()
+  end
+
+  def best_sellers_list
+     @products_list.flatten
+  end
+
+  
+
+
+end
