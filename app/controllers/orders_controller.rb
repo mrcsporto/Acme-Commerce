@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :filter_category
 
   def import
      # %x[rake import_orders] Removi pois utilizei a Rake task para rodar em background pois buscava de um diretório local, 
@@ -76,4 +77,9 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:referencia_pedido, :email_pedido, :data_pagamento, :nome_cliente, :estado_pedido, :valor_total, :valor_produto, :imagem_produto, :nome_produto, :categoria, :valor_base, :cidade, :estado, :endereco)
     end
+
+    def filter_category
+      @filter_category = Order.distinct.pluck(:categoria).sort()
+    end
+
 end

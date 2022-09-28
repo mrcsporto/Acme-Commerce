@@ -24,15 +24,12 @@ class Order < ApplicationRecord
     end
   end
 
-  def self.filter_category
+  def filter_category
     Order.distinct.pluck(:categoria).sort()
   end
 
   def best_sellers_list
      @products_list.flatten
   end
-
-  
-
 
 end
