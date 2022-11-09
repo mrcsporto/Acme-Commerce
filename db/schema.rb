@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_09_27_234626) do
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_bestsellers_on_order_id"
+    # t.index ["order_id"], name: "index_bestsellers_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -41,5 +41,5 @@ ActiveRecord::Schema.define(version: 2022_09_27_234626) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bestsellers", "orders"
+  # add_foreign_key "bestsellers", "orders"
 end

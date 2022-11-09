@@ -1,17 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<div class="nav">
-  <h1>Orders </h1>
-  <h4><%= link_to 'New Order', new_order_path %></h4>
-  <h4><%= link_to 'Best Sellers', bestsellers_path %></h4>
-</div>
-<hr>
-<div class="container">
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<div class="filter">
     <div class="content">
       <h3>Import Orders</h3>
         <%= form_tag import_orders_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "Import" %>
+          <%= file_field_tag :file %>
+          <br>
+          <%= submit_tag "Import" %>
       <% end %>
     </div>
     <div class="content">
@@ -22,32 +18,34 @@
       <% end %>
     </div>
   </div>
-</div><br><hr><br>
-
-<table>
+</div>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Referencia pedido</th>
-      <th>Email pedido</th>
-      <th>Data pagamento</th>
-      <th>Nome cliente</th>
-      <th>Estado pedido</th>
-      <th>Valor total</th>
-      <th>Valor produto</th>
-      <th>Imagem produto</th>
-      <th>Nome produto</th>
-      <th>Categoria</th>
-      <th>Valor base</th>
-      <th>Cidade</th>
-      <th>Estado</th>
-      <th>Endereco</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:referencia_pedido) %></th>
+      <th><%= model_class.human_attribute_name(:email_pedido) %></th>
+      <th><%= model_class.human_attribute_name(:data_pagamento) %></th>
+      <th><%= model_class.human_attribute_name(:nome_cliente) %></th>
+      <th><%= model_class.human_attribute_name(:estado_pedido) %></th>
+      <th><%= model_class.human_attribute_name(:valor_total) %></th>
+      <th><%= model_class.human_attribute_name(:valor_produto) %></th>
+      <th><%= model_class.human_attribute_name(:imagem_produto) %></th>
+      <th><%= model_class.human_attribute_name(:nome_produto) %></th>
+      <th><%= model_class.human_attribute_name(:categoria) %></th>
+      <th><%= model_class.human_attribute_name(:valor_base) %></th>
+      <th><%= model_class.human_attribute_name(:cidade) %></th>
+      <th><%= model_class.human_attribute_name(:estado) %></th>
+      <th><%= model_class.human_attribute_name(:endereco) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= link_to order.id, order_path(order) %></td>
         <td><%= order.referencia_pedido %></td>
         <td><%= order.email_pedido %></td>
         <td><%= order.data_pagamento %></td>
@@ -62,10 +60,23 @@
         <td><%= order.cidade %></td>
         <td><%= order.estado %></td>
         <td><%= order.endereco %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l order.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      order_path(order), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_order_path(order), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      order_path(order),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_order_path,
+            :class => 'btn btn-primary' %>

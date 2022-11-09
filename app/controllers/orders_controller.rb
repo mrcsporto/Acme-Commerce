@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
   def import
      # %x[rake import_orders] Removi pois utilizei a Rake task para rodar em background pois buscava de um diretório local, 
      #caso mude de pc pode mudar o path da pasta também. Preferi deixar assim até descobrir outra forma.
-     
     Order.import(params[:file])
     redirect_to orders_url, notice: "Orders imported."
+  end
+
+  def filter_category
+    @filter_category = Order.distinct.pluck(:categoria).sort()
   end
 
   # GET /orders or /orders.json
@@ -77,9 +80,4 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:referencia_pedido, :email_pedido, :data_pagamento, :nome_cliente, :estado_pedido, :valor_total, :valor_produto, :imagem_produto, :nome_produto, :categoria, :valor_base, :cidade, :estado, :endereco)
     end
-
-    def filter_category
-      @filter_category = Order.distinct.pluck(:categoria).sort()
-    end
-
 end

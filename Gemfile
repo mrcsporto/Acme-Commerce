@@ -17,6 +17,14 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# Twitter Bootstrap for Rails 6, 5 and 4 Asset Pipeline
+gem "twitter-bootstrap-rails"
+# Javascript runtime 
+gem 'therubyracer', '~> 0.12.3'
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs	
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

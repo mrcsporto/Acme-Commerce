@@ -1,16 +1,16 @@
-<h1>Welcome to Acme Commerce</h1>
-<h4><%= link_to 'Orders', orders_path %></h4>
-
-<table>
+<%- model_class = Bestseller -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped best-sellers">
   <thead>
     <tr>
       <th>Nome do Produto</th>
       <th>Quantidade Vendida</th>
     </tr>
   </thead>
-
   <tbody>
-      <% @products_list.each do |produto, qtd| %>
+    <% @products_list.each do |produto, qtd| %>
       <tr>
         <td><%="#{produto}" %></td>
         <td style="text-align:center"><%= "#{qtd}" %></td> 
