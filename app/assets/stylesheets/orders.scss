@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container {
+.navbar > .container  {
   display: flex;
   justify-content: space-between;
 }
 
-.nav {
+.filter {
   display: flex;
-  width: 20rem;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+

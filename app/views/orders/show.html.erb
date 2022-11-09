@@ -1,74 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Referencia pedido:</strong>
-  <%= @order.referencia_pedido %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:referencia_pedido) %>:</strong></dt>
+  <dd><%= @order.referencia_pedido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_pedido) %>:</strong></dt>
+  <dd><%= @order.email_pedido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_pagamento) %>:</strong></dt>
+  <dd><%= @order.data_pagamento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome_cliente) %>:</strong></dt>
+  <dd><%= @order.nome_cliente %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_pedido) %>:</strong></dt>
+  <dd><%= @order.estado_pedido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor_total) %>:</strong></dt>
+  <dd><%= @order.valor_total %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor_produto) %>:</strong></dt>
+  <dd><%= @order.valor_produto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagem_produto) %>:</strong></dt>
+  <dd><%= @order.imagem_produto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome_produto) %>:</strong></dt>
+  <dd><%= @order.nome_produto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:categoria) %>:</strong></dt>
+  <dd><%= @order.categoria %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor_base) %>:</strong></dt>
+  <dd><%= @order.valor_base %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cidade) %>:</strong></dt>
+  <dd><%= @order.cidade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @order.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
+  <dd><%= @order.endereco %></dd>
+</dl>
 
-<p>
-  <strong>Email pedido:</strong>
-  <%= @order.email_pedido %>
-</p>
-
-<p>
-  <strong>Data pagamento:</strong>
-  <%= @order.data_pagamento %>
-</p>
-
-<p>
-  <strong>Nome cliente:</strong>
-  <%= @order.nome_cliente %>
-</p>
-
-<p>
-  <strong>Estado pedido:</strong>
-  <%= @order.estado_pedido %>
-</p>
-
-<p>
-  <strong>Valor total:</strong>
-  <%= @order.valor_total %>
-</p>
-
-<p>
-  <strong>Valor produto:</strong>
-  <%= @order.valor_produto %>
-</p>
-
-<p>
-  <strong>Imagem produto:</strong>
-  <%= @order.imagem_produto %>
-</p>
-
-<p>
-  <strong>Nome produto:</strong>
-  <%= @order.nome_produto %>
-</p>
-
-<p>
-  <strong>Categoria:</strong>
-  <%= @order.categoria %>
-</p>
-
-<p>
-  <strong>Valor base:</strong>
-  <%= @order.valor_base %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @order.cidade %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @order.estado %>
-</p>
-
-<p>
-  <strong>Endereco:</strong>
-  <%= @order.endereco %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              orders_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_order_path(@order), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              order_path(@order),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
