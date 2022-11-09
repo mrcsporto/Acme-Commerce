@@ -1,7 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px; }
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -14,8 +20,13 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #000;
+  font-size: 1.5rem;
+ }
 
+.navbar-brand {
+  font-size: 2rem;
+ }
 a:visited {
   color: #666; }
 
@@ -32,6 +43,25 @@ td {
 div.field,
 div.actions {
   margin-bottom: 10px; }
+
+footer {
+  text-align: center;
+}
+
+.container > .row { 
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.container { 
+  width: 100%;
+  text-align: justify;
+}
+
+.table>thead>tr>th {
+  text-align: center;
+  vertical-align: baseline;
+}
 
 #notice {
   color: green; }

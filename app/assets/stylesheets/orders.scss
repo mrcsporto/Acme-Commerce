@@ -2,13 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container {
+.navbar > .container  {
   display: flex;
   justify-content: space-between;
 }
 
-.nav {
+.filter {
   display: flex;
-  width: 20rem;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+form {
+  display: block;
+  margin-top: 0em;
+}
+
+
