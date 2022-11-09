@@ -5,8 +5,9 @@
     <div class="content">
       <h3>Import Orders</h3>
         <%= form_tag import_orders_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "Import" %>
+          <%= file_field_tag :file %>
+          <br>
+          <%= submit_tag "Import" %>
       <% end %>
     </div>
     <div class="content">
@@ -18,7 +19,7 @@
     </div>
   </div>
 </div>
-</div><br><hr><br>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
